@@ -1,0 +1,35 @@
+
+<div class="article-wrap">
+  <img class="article-bg" src="<%= (url_for(@article.image)) %>" alt="">
+  <div class="article-content">
+    <div class="text-center">
+      <h1 class="text-uppercase"><%= @article.title %></h1>
+    </div>
+    <div class="flex flex-col">
+      <img class="article-img" src="<%= (url_for(@article.image)) %>" alt="">
+
+        <p class="article-body" ><%= @article.body %></p>
+
+
+      <div class="flex  flex-wrap row-end-3 justify-center">
+        <ul>
+          <li><%= link_to "Edit", edit_article_path(@article) %></li>
+          <li><%= link_to "Destroy", article_path(@article),
+                          method: :delete,
+                          data: { confirm: "Are you sure?" } %></li>
+        </ul>
+      </div>
+
+      <div>
+        <h2>Comments</h2>
+        <%= render @article.comments %>
+
+        <h2>Add a comment:</h2>
+        <%= render 'comments/form' %>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+

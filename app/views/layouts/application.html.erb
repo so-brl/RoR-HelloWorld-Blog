@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Blog</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= stylesheet_link_tag 'knacss', media: 'all' %>
+  <%= stylesheet_link_tag 'grillade', media: 'all' %>
+  <%= stylesheet_link_tag 'global', media: 'all' %>
+  <%#= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
+
+<body class="flex flex-col justify-center">
+<header>
+  <nav class="main-navigation flex flex-row justify-between">
+    <div>
+      <a href="/">Accueil</a>
+      <%= link_to "Ajouter un article", new_article_path %>
+    </div>
+    <div>
+      <a href="#"><i class="fab fa-github"></i></a>
+    </div>
+
+  </nav>
+
+
+</header>
+
+<%= yield %>
+
+
+<footer>
+  <p><i class="fab fa-github"></i></p>
+</footer>
+<script src="https://kit.fontawesome.com/f22bcd2384.js" crossorigin="anonymous"></script>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<div class="text-center">
+  <h1 class="text-uppercase">les articles</h1>
+
+  <p> Our blog has <%= Article.public_count %> articles and counting!</p>
+</div>
+
+<div class="flex  flex-wrap row-end-3 justify-center">
+
+  <% @articles.each do |article| %>
+    <a class="card flex flex-col" href="/articles/<%= article.id %>">
+      <div>
+        <%= article.title %>
+      </div>
+      <div>
+        <% if article.image.attached? %>
+          <img src=<%= (url_for(article.image)) %>>
+        <% else %>
+          <img src="https://oswallpapers.com/wp-content/uploads/2016/06/img102.jpg">
+        <% end %>
+<!--        <p><%# truncate(article.body, length: 150 , omission: '... (continued)') %></p>-->
+        <%# article.get_excerpt(article.body) %>
+        <%# Excerpt.new(article.body).around_line(12, radius: 2) %>
+      </div>
+      <div class="flex  flex-wrap row-end-3 justify-around">
+        <button>
+
+          <i class="fas fa-comment"></i>
+        </button>
+        <button>
+          <i class="fas fa-edit"></i>
+        </button>
+        <button>
+          <i class="fas fa-trash-alt"></i>
+        </button>
+
+
+      </div>
+
+    </a>
+
+
+  <% end %>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
